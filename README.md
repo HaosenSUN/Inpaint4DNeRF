@@ -1,4 +1,4 @@
-<center># Inpaint4DNeRF: Promptable Spatio-Temporal NeRF Inpainting withGenerative Diffusion Models
+# <center>Inpaint4DNeRF: Promptable Spatio-Temporal NeRF Inpainting withGenerative Diffusion Models</center>
 
 ## Updates
 
