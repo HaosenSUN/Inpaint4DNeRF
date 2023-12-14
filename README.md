@@ -5,7 +5,6 @@
 ## Introduction
 Our generative Inpaint4DNeRF proposes a text-guided approach for inpainting the relevant background after removing static foreground objects specified by a user-supplied prompt, where multiview consistency is meticulously maintained. The code will release soon.
 
-Inpaint4DNeRF: Promptable Spatio-Temporal NeRF Inpainting with Generative Diffusion Models    MathJax.Hub.Config({tex2jax: {inlineMath: \[\['$','$'\], \['\\\\(','\\\\)'\]\]}}); \* { box-sizing: border-box; } video { width: 100%; height: auto; } p { width: 95%; padding: 10px; margin: auto; } /\* Remove the navbar's default margin-bottom and rounded borders \*/ .navbar { margin-bottom: 0; border-radius: 0; } /\* Add a gray background color and some padding to the footer \*/ footer { background-color: #f2f2f2; padding: 25px; } #ours { font-weight: bold; } .glyphicon.glyphicon-arrow-down.main\_arr { font-size: 75px; } .glyphicon.glyphicon-option-horizontal.main\_arr { top: 50px; font-size: 75px; } .glyphicon { display: block; text-align:center; } #noise { text-align:center; vertical-align: bottom; }
 
 
 ### Overview
