@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Inpaint4DNeRF: Promptable Spatio-Temporal NeRF Inpainting with Generative
+    Diffusion Models</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+  </script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    video {
+      width: 100%;
+      height: auto;
+    }
+
+    p {
+      width: 95%;
+      padding: 10px;
+      margin: auto;
+    }
+
+    /* Remove the navbar's default margin-bottom and rounded borders */
+
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+
+    /* Add a gray background color and some padding to the footer */
+
+    footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+
+    #ours {
+      font-weight: bold;
+    }
+
+    .glyphicon.glyphicon-arrow-down.main_arr {
+      font-size: 75px;
+    }
+
+    .glyphicon.glyphicon-option-horizontal.main_arr {
+      top: 50px;
+      font-size: 75px;
+    }
+
+    .glyphicon {
+      display: block;
+      text-align:center;
+    }
+
+    #noise {
+      text-align:center;
+      vertical-align: bottom;
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <div class="jumbotron" style="margin-bottom:0;background-color:transparent !important" id="title">
+    <div class="container text-center">
+      <h2>Inpaint4DNeRF: Promptable Spatio-Temporal NeRF Inpainting with <br>
+        Generative Diffusion Models</h2>
+      <p>Supplementary Material Page</p>
+    </div>
+  </div>
+
+
+  <div class="jumbotron">
+    <h3 class="text-center">Overview</h2>
+    <div class="container-fluid text-align">
+      <div class="row">
+        <p>   This webpage contains supplementary material for paper <b>Inpaint4DNeRF: Promptable Spatio-Temporal NeRF Inpainting with Generative
+          Diffusion Models</b> submitted to CVPR 2024. There will be free viewpoint videos of 3D inpainting examples in the paper as well as more 4D examples. There will also be a COLMAP section verifying the consistency of our pre-processed training images.
+        </p>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="jumbotron container-fluid bg-3" id="Comparison" style="background-color:transparent">
+    <div class="row" >
+      <h3 class="text-center">Videos of 3D Inpainting Examples</h3>
+    </div>
+    <br>
+  
+    <div class="row">
+      <div class="col-sm-4">
+        <p class="text-center">Text prompt: <b>an Argentina soccer player</b></p>
+      </div>
+      <div class="col-sm-4">
+        <p class="text-center">Text prompt: <b>an old professor, standing</b></p>
+      </div>
+      <div class="col-sm-4">
+        <p class="text-center">Text prompt: <b>telegraph pole</b></p>
+      </div>
+    </div>
+    <div class="row">
+      <p class="text-center">RGB, <b>Final Result</b></p>
+      <div class="col-sm-4">
+        <video width="400" controls autoplay loop>
+          <source src="inpaint3dnerf_video/arg_final_rgb.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="col-sm-4">
+        <video width="400" controls autoplay loop>
+          <source src="inpaint3dnerf_video/oldprof_final_rgb.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="col-sm-4">
+        <video width="400" controls autoplay loop>
+          <source src="inpaint3dnerf_video/pole_final_rgb.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+    <div class="row">
+      <p class="text-center">Depth map, <b>Final Result</b></p>
+      <div class="col-sm-4">
+        <video width="400" controls autoplay loop>
+          <source src="inpaint3dnerf_video/arg_final_depth.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="col-sm-4">
+        <video width="400" controls autoplay loop>
+          <source src="inpaint3dnerf_video/oldprof_final_depth.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="col-sm-4">
+        <video width="400" controls autoplay loop>
+          <source src="inpaint3dnerf_video/pole_final_depth.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+	  
+	  <div class="row">
+      <p class="text-center">RGB, <b>Warmup Result</b></p>
+      <div class="col-sm-4">
+        <video width="400" controls autoplay loop>
+          <source src="inpaint3dnerf_video/arg_warmup_rgb.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="col-sm-4">
+        <video width="400" controls autoplay loop>
+          <source src="inpaint3dnerf_video/oldprof_warmup_rgb.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="col-sm-4">
+        <video width="400" controls autoplay loop>
+          <source src="inpaint3dnerf_video/pole_warmup_rgb.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+	  
+	  <div class="row">
+      <p class="text-center">Depth map, <b>Warmup Result</b></p>
+      <div class="col-sm-4">
+        <video width="400" controls autoplay loop>
+          <source src="inpaint3dnerf_video/arg_warmup_depth.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="col-sm-4">
+        <video width="400" controls autoplay loop>
+          <source src="inpaint3dnerf_video/oldprof_warmup_depth.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="col-sm-4">
+        <video width="400" controls autoplay loop>
+          <source src="inpaint3dnerf_video/pole_warmup_depth.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+	  
+	  <div class="row">
+      <p class="text-center">RGB, <b>Initial NeRF</b></p>
+      <div class="col-sm-4">
+        <video width="400" controls autoplay loop>
+          <source src="inpaint3dnerf_video/arg_init_rgb.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="col-sm-4">
+        <video width="400" controls autoplay loop>
+          <source src="inpaint3dnerf_video/oldprof_init_rgb.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="col-sm-4">
+        <video width="400" controls autoplay loop>
+          <source src="inpaint3dnerf_video/pole_init_rgb.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+	  
+	  <div class="row">
+      <p class="text-center">Depth map, <b>Initial NeRF</b></p>
+      <div class="col-sm-4">
+        <video width="400" controls autoplay loop>
+          <source src="inpaint3dnerf_video/arg_init_depth.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="col-sm-4">
+        <video width="400" controls autoplay loop>
+          <source src="inpaint3dnerf_video/oldprof_init_depth.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="col-sm-4">
+        <video width="400" controls autoplay loop>
+          <source src="inpaint3dnerf_video/pole_init_depth.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div><br>
+
+  <div class="jumbotron container-fluid bg-3" id="Comparison" style="background-color:transparent">
+    <div class="row" >
+      <h3 class="text-center">COLMAP reconstruction on pre-processed images</h3>
+      <p>Our inpainting method relies on a set of consistent pre-proccessed multiview images. To demonstrate their consistency, besides the warmup results, we apply <b>COLMAP multiview stereo dense reconstruction</b> on the pre-processed images to obtain a point cloud for each 3D example. We also report the <b>mean projection error</b> of the examples as a quantitative measure. Results and visualizations for each example are shown in the 3 columns consistent with the above section.</p>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-sm-4">
+        <p class="text-center">"an Argentina soccer player"</p>
+      </div>
+      <div class="col-sm-4">
+        <p class="text-center">"an old professor, standing"</p>
+      </div>
+      <div class="col-sm-4">
+        <p class="text-center">"telegraph pole"</p>
+      </div>
+    </div>
+	  <div class="row">
+      <p class="text-center"><b>Mean Projection Error</b></p>
+      <div class="col-sm-4">
+        <p class="text-center">1.0428</p>
+      </div>
+      <div class="col-sm-4">
+        <p class="text-center">1.0562</p>
+      </div>
+      <div class="col-sm-4">
+        <p class="text-center">1.0269</p>
+      </div>
+    </div>
+	  <div class="row">
+      <p class="text-center"><b>Mean Track Length</b></p>
+      <div class="col-sm-4">
+        <p class="text-center">5.5851</p>
+      </div>
+      <div class="col-sm-4">
+        <p class="text-center">5.1763</p>
+      </div>
+      <div class="col-sm-4">
+        <p class="text-center">6.5273</p>
+      </div>
+    </div>
+	  <div class="row">
+      <p class="text-center"><b>Visualization of Reconstructed Point Clouds</b></p>
+      <div class="col-sm-4">
+        <img width="400" src="colmap/vis/arg00.png">
+      </div>
+      <div class="col-sm-4">
+        <img width="400" src="colmap/vis/oldprof00.png">
+      </div>
+      <div class="col-sm-4">
+        <img width="400" src="colmap/vis/pole00.png">
+      </div>
+    </div>
+	  <div class="row">
+      <div class="col-sm-4">
+        <img width="400" src="colmap/vis/arg01.png">
+      </div>
+      <div class="col-sm-4">
+        <img width="400" src="colmap/vis/oldprof01.png">
+      </div>
+      <div class="col-sm-4">
+        <img width="400" src="colmap/vis/pole01.png">
+      </div>
+    </div>
+	  <div class="row">
+      <div class="col-sm-4">
+        <img width="400" src="colmap/vis/arg02.png">
+      </div>
+      <div class="col-sm-4">
+        <img width="400" src="colmap/vis/oldprof02.png">
+      </div>
+      <div class="col-sm-4">
+        <img width="400" src="colmap/vis/pole02.png">
+      </div>
+    </div><br>
+  </div>
+
+  <div class="jumbotron container-fluid bg-3" id="Comparison" style="background-color:transparent">
+    <div class="row" >
+      <h3 class="text-center">Videos of 4D Inpainting Examples</h3>
+      <p> Below we show 3 dynamic NeRF inpainting examples, including the example in our paper. For each example, we show a multiview video of the final result, as well as the "seed video" generated from the first seed images along with the original video. </p>
+      <p> For the third example "the girl", instead of generating new objects, we try to recover parts of the girl and the background that is occluded by the red dinosaur balloon in the original NeRF. While our final result is not perfectly clear, we can recover the static background and approximately the girl's motion in the NeRF. This example demonstrates that our method can not only generate brand new objects, but also generate missing content that is partially occluded.</p>
+    </div>
+    <br>
+  </div>
+  <div class="row">
+    <div class="col-sm-4">
+      <p class="text-center">Text prompt: <b>a golden sword, side view</b></p>
+    </div>
+    <div class="col-sm-4">
+      <p class="text-center">Text prompt: <b>two storey red bus, driving towards left</b></p>
+    </div>
+    <div class="col-sm-4">
+      <p class="text-center">Text prompt: <b>the girl</b></p>
+    </div>
+  </div>
+  <div class="row">
+    <p class="text-center">Final Render</b></p>
+    <div class="col-sm-4">
+      <video width="400" controls autoplay loop>
+        <source src="inpaint4dnerf_video/sword_final.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="col-sm-4">
+      <video width="400" controls autoplay loop>
+        <source src="inpaint4dnerf_video/bus_final.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="col-sm-4">
+      <video width="400" controls autoplay loop>
+        <source src="inpaint4dnerf_video/girl_final.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+  <div class="row">
+    <p class="text-center">Seed Video</b></p>
+    <div class="col-sm-4">
+      <video width="400" controls autoplay loop>
+        <source src="inpaint4dnerf_video/sword_seed.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="col-sm-4">
+      <video width="400" controls autoplay loop>
+        <source src="inpaint4dnerf_video/bus_seed.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="col-sm-4">
+      <video width="400" controls autoplay loop>
+        <source src="inpaint4dnerf_video/girl_seed.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+  <div class="row">
+    <p class="text-center">Original Video</b></p>
+    <div class="col-sm-4">
+      <video width="400" controls autoplay loop>
+        <source src="inpaint4dnerf_video/sword_org.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="col-sm-4">
+      <video width="400" controls autoplay loop>
+        <source src="inpaint4dnerf_video/bus_org.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="col-sm-4">
+      <video width="400" controls autoplay loop>
+        <source src="inpaint4dnerf_video/girl_org.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+
+</body>
+<script>
+  $(".nav li").on("click", function() {
+    $(".nav li").removeClass("active");
+    $(this).addClass("active");
+  });
+</script>
+
+</html>
