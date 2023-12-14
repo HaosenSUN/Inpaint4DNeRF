@@ -22,4 +22,4 @@
 Our generative Inpaint4DNeRF proposes a text-guided approach for inpainting the relevant background after removing static foreground objects specified by a user-supplied prompt, where multiview consistency is meticulously maintained. Our generative Inpaint4DNeRF baseline framework is general which can be readily extended to dynamic NeRFs, where temporal consistency can be naturally handled in a similar way as our multiview consistency.The code will release soon.
 
 ## Baseline Overview
-![](Baseline.jpg)
+![avatar](Baseline.png)
