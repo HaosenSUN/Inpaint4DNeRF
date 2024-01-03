@@ -13,6 +13,7 @@
     &nbsp;&nbsp;
     <strong>(*Equal contribution)</strong></a>
   </p>
+  [**Project**](https://hjiangav.github.io/inpaint4dnerf//) | [**Paper**](https://arxiv.org/abs/2401.00208)
   <br>
 </p>
 
