@@ -23,3 +23,15 @@ Our generative Inpaint4DNeRF proposes a text-guided approach for inpainting the 
 
 ## Baseline Overview
 ![avatar](Baseline.png)
+
+## BibTeX
+<pre>
+@misc{inpaint4dnerf,
+      title={Inpaint4DNeRF: Promptable Spatio-Temporal NeRF Inpainting with Generative Diffusion Models}, 
+      author={Han Jiang and Haosen Sun and Ruoxuan Li and Chi-Keung Tang and Yu-Wing Tai},
+      year={2023},
+      eprint={2401.00208},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
+</pre>
