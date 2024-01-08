@@ -11,7 +11,7 @@
     &nbsp;&nbsp;
     <a href="http://www.cs.ust.hk/~cktang/"><strong>Chi-Keung Tang</strong></a>
     &nbsp;&nbsp;
-    <strong>(*Equal contribution)</strong></a>
+    (*Equal contribution)</a>
   </p>
   <br>
 </p>
