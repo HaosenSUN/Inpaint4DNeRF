@@ -20,8 +20,9 @@
 
 ## Updates
 <p align="center"> 
-  
-[**Project Page**](https://inpaint4dnerf.github.io/) | [**Paper**](https://arxiv.org/abs/2401.00208)
+  <a href="(https://inpaint4dnerf.github.io/"><strong>Project Page<sup>*</sup></strong></a>
+    &nbsp;&nbsp;
+  <a href="https://arxiv.org/abs/2401.00208"><strong>Paper<sup>*</sup></strong></a>
 </p>
 
 ## Introduction
