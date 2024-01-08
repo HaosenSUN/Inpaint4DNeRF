@@ -20,6 +20,7 @@
 
 ## Updates
 <p align="center"> 
+  
 [**Project Page**](https://inpaint4dnerf.github.io/) | [**Paper**](https://arxiv.org/abs/2401.00208)
 </p>
 
